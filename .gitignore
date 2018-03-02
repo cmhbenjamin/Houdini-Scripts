@@ -10,11 +10,11 @@
 
 # breakdowns #
 ##############
-.mov
+*.mov
 
 # folders #
 ###########
-*/.dev
+*/dev
 
 # Packages #
 ############

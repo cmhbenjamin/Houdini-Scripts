@@ -91,11 +91,14 @@ def prompt(data):
 def load():
     #prompt("loaded settings")
     settingNode = hou.node("/obj/"+_settingNode)
+    for pt in settingNode.parmTuples():
+        pt.hide(1)
     settings = getFlipbookSettings()
     if(not settingNode):
         default(settings)
     else:
         listToSettings(settings,jsonToList(settingNode.userData("flipbooksetting"),0))
+
 """
     initialize setting Node
 """
@@ -107,5 +110,7 @@ def save():
         obj = hou.node("/obj")
         settingNode = obj.createNode("geo", _settingNode, run_init_scripts=False, load_contents=False)
         settingNode.moveToGoodPosition
-        settingNode.setColor(hou.Color(1,0,0))
+        settingNode.setColor(hou.Color(64/255,69/255,74/255))
+        for pt in settingNode.parmTuples():
+            pt.hide(1)
     settingNode.setUserData("flipbooksetting", listToJson(settingsToList(settings),0))

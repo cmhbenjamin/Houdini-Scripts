@@ -7,8 +7,6 @@ def scene_event_callback(event_type):
     elif event_type == hou.hipFileEventType.BeforeSave:
         #hou.ui.displayMessage("saved")
         flipbookSettingsSaver.save()
-        #hou.ui.displayMessage("The user loaded", buttons
-        #print("The user loaded", hou.hipFile.path())
 
 
-hou.hipFile.addEventCallback(scene_event_callback)
+#hou.hipFile.addEventCallback(scene_event_callback)
